@@ -48,16 +48,18 @@ def main():
             clock.tick(MAX_FPS)
             p.display.flip()
 
+
 def drawGameState(screen, gs):
-    drawBoard(screen) #draw squares on board
+    drawBoard(screen)  # draw squares on board
     drawPieces(screen, gs.board)
 
 
 def drawBoard(screen):
     colors = [p.Color("white", p.Color("grey"))]
     for r in range(DIMENSIONS):
-        for c in range(DIMENSIONS:)
-
+        for c in range(DIMENSIONS):
+            color = colors[((r + c) % 2)]
+            p.draw.rect(screen, color, p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
 
 
 def drawPieces(screen, board):
