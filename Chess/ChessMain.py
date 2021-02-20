@@ -4,7 +4,6 @@
 
 
 import pygame as p
-from chess.svg import board
 
 from Chess import ChessEngine
 
@@ -23,7 +22,7 @@ def loadImages():
     pieces = ["wp", "wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR", "bp", "bR", "bN", "bB", "bQ", "bK", "bB", "bN",
               "bR"]
     for piece in pieces:
-        IMAGES[piece] = p.transform.scale(p.image.load("Chess/Chess/images/" + piece + ".png"), (SQ_SIZE, SQ_SIZE))
+        IMAGES[piece] = p.transform.scale(p.image.load("images/" + piece + ".png"), (SQ_SIZE, SQ_SIZE))
 
 
 #         note: we can access an image by saying 'IMAGES['wp']
@@ -59,9 +58,8 @@ def drawBoard(screen):
     colors = [p.Color("white", p.Color("green"))]
     for r in range(DIMENSION):
         for c in range(DIMENSION):
-            color = colors[((r+c) % 2)]
-            p.draw.rect(screen, color, p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
-
+            color = colors[((r + c) % 2)]
+            p.draw.rect(screen, color, p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
 
 
 def drawPieces(screen, board):
@@ -69,11 +67,10 @@ def drawPieces(screen, board):
         for c in range(DIMENSION):
             piece = board[r][c]
             if piece != "--":
-                screen.blit(IMAGES[piece], p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
+                screen.blit(IMAGES[piece], p.Rect(c * SQ_SIZE, r * SQ_SIZE, SQ_SIZE, SQ_SIZE))
     '''
     draws the pieces on the board using current gameState.board
     '''
-
 
 
 if __name__ == "__main__":
