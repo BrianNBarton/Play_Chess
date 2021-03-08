@@ -6,7 +6,7 @@
 
 ######
 
-class GameState:
+class GameState():
     def __init__(self):
         # this board is an 8x8 two dimentional list.
         self.board = [

@@ -38,15 +38,17 @@ def main():
     clock = p.time.Clock()
     screen.fill(p.Color("white"))
     gs = ChessEngine.GameState()
+    print(gs.board)
     loadImages()  # only operated once
     running = True
     while running:
         for e in p.event.get():
             if e.type == p.QUIT:
                 running = False
-        drawGameState((screen, gs))
+        drawGameState(screen, gs)
         clock.tick(MAX_FPS)
         p.display.flip()
+
 
 
 def drawGameState(screen, gs):
@@ -55,7 +57,7 @@ def drawGameState(screen, gs):
 
 
 def drawBoard(screen):
-    colors = [p.Color("white", p.Color("green"))]
+    colors = [p.Color("white"), p.Color("grey")]
     for r in range(DIMENSION):
         for c in range(DIMENSION):
             color = colors[((r + c) % 2)]
